@@ -8,7 +8,8 @@ Install homebrew: https://brew.sh/
 '''brew  install node'''
 
 # Python
-'''brew install python3
+Install python 3 and then some useful packages used in the tasks
+'''brew install python3'''
     pip3 install pandas
     pip3 install msgpack-python
     pip3 install numpy
@@ -16,5 +17,9 @@ Install homebrew: https://brew.sh/
     pip3 install tqdm
     pip3 install py-midi'''
 
-# 
+# Tenserflow
+We are using the CPU only version which can be installed as per below
+'''pip install tensorflow'''
 
+# Git
+'''brew install git'''
