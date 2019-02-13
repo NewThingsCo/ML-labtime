@@ -4,16 +4,10 @@ import {NeuralNetwork} from 'brain.js'
 let trainedNet;
 
 function encode(arg){
-    return arg.split('').map(x => (x.charCodeAt(0) / 255));
 }
 
 function processTrainingData(data) {
-    return data.map(d => {
-        return {
-            input: encode(d.input),
-            output: d.output
-        }
-    })
+
 }
 
 
@@ -32,27 +26,11 @@ timeout: Infinity     // the max number of milliseconds to train for --> number 
 
 function train(data) {
     const net = new NeuralNetwork();
-    net.train(processTrainingData(data), config);
     trainedNet = net.toFunction();
 }
 
 export function execute(input) {
-    const results = trainedNet(encode(input));  //trainedNet(encode(input));
-    console.log(results);
 
-    let output;
-    let certainty;
-
-    if(results.trump > results.kardashian){
-        output = 'Donald Trump'
-        certainty = Math.floor(results.trump * 100)
-    }
-    else{
-        output = 'Kim Kardashian'
-        certainty = Math.floor(results.kardashian * 100)
-    }
-
-    return "Result : " + output + " Certainty : " + certainty + "%";
 }
 
 
