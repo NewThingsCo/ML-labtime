@@ -3,6 +3,12 @@
 ## Contains
 A simple create-react-app setup with the brainJS utils pre-installed
 
+## Install
+Install the packages needed (should already be there, if not ping me!)
+```
+npm install
+``` 
+
 ## Run
 
 Run with standard npm commands
