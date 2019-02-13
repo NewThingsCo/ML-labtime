@@ -1,0 +1,14 @@
+.idea/
+.terraform/
+build/
+coverage/
+node_modules/
+reports/
+screenshots/
+config/local*.json
+*.log
+*.backup
+*.tfplan
+*.tfstate
+.DS_Store
+stats.json
