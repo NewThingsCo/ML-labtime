@@ -12,3 +12,5 @@ config/local*.json
 *.tfstate
 .DS_Store
 stats.json
+
+.DS_STORE
