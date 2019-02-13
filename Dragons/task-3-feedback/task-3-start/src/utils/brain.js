@@ -1,8 +1,8 @@
 import {trainingData} from '../data/training-data'
 import {NeuralNetwork} from 'brain.js'
-import {processTrainingData, encodeText} from "./encoding-tools";
+import {processTrainingData, encodeText} from "./encoding-tools"
 
-let trainedNet;
+let trainedNet
 
 const config =  {
     // Defaults values --> expected validation
@@ -18,31 +18,39 @@ timeout: Infinity     // the max number of milliseconds to train for --> number 
 }
 
 function train(data) {
-    const net = new NeuralNetwork();
-    net.train(processTrainingData(data), config);
-    trainedNet = net.toFunction();
+    const net = new NeuralNetwork()
+    net.train(processTrainingData(data), config)
+    trainedNet = net.toFunction()
 }
 
 export function execute(input) {
-    const results = trainedNet(encodeText(input));
-    console.log(results);
+    const results = trainedNet(encodeText(input))
+    console.log(results)
 
-    let output;
-    let certainty;
+    let output
+    let certainty
+    let category
 
     if(results.trump > results.kardashian){
         output = 'Donald Trump'
         certainty = Math.floor(results.trump * 100)
+        category = {trump : 1}
     }
     else{
         output = 'Kim Kardashian'
         certainty = Math.floor(results.kardashian * 100)
+        category = {kardashian : 1}
     }
 
-    return "Result : " + output + " Certainty : " + certainty + "%";
+
+    return {
+        text : "Result : " + output + " Certainty : " + certainty + "%",
+        input : input,
+        output : category
+    }
 }
 
 
 export function startTraining() {
-    train(trainingData);
+    train(trainingData)
 }

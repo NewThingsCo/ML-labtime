@@ -14,11 +14,11 @@ class App extends Component {
   }
 
   render() {
-    const self = this;
+    const self = this
 
     function fireStartTraining(event) {
       if(event !== undefined) event.preventDefault();
-      startTraining();
+      startTraining()
       self.setState({
         ...self.state,
         testDisabled: false
@@ -26,9 +26,9 @@ class App extends Component {
     }
 
     function registerInput(event) {
-      if(event !== undefined) event.preventDefault();
+      if(event !== undefined) event.preventDefault()
 
-      let input = event.target.value;
+      let input = event.target.value
       self.setState({
         ...self.state,
         input: input
@@ -36,7 +36,7 @@ class App extends Component {
     }
 
     function testThatTweet(event){
-      if(event !== undefined) event.preventDefault();
+      if(event !== undefined) event.preventDefault()
       if(self.state.input !== ""){
         self.setState({
           ...self.state,
@@ -45,7 +45,7 @@ class App extends Component {
       }
     }
 
-    const {result, testDisabled} = this.state;
+    const {result, testDisabled} = this.state
 
     return (
       <div className="App">
@@ -53,10 +53,11 @@ class App extends Component {
         <p>{testDisabled ? "Train model first!" : "Test That Tweet!"}</p>
         <input type="text" onChange={registerInput} disabled={testDisabled} />
         <button onClick={testThatTweet} disabled={testDisabled}>Test</button>
-        <p>{result}</p>
+        <p>{result.input}</p>
+        <p>{result.text}</p>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const trainingData = [
+export let trainingData = [
     {
         input: "So true, thank you!",
         output: { trump: 1 }
