@@ -1,4 +1,4 @@
-##Build your own neural network
+## Build your own neural network
 
 We're going to build a neural network in a language of your choice.
 We will try to teach the network to choose the right number from our array by index. First we will train it with an training data and then we are going to ask it to predict the correct number from other input
@@ -19,7 +19,7 @@ var result = neuralNetwork.predict(testInput)
 //result should be 8 (we tried to teach the network to always pick the first number)
 ```
 ###
-####Short introduction
+#### Short introduction
 What should a Neural network do from a high-level perspective?
 It should to be able to be trained with provided data and answers, so it can learn from that, and we need to be able to test it, or have it predict an outcome.
 
