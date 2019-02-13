@@ -3,7 +3,9 @@
 ## Initial setup
 Clone the base repo, this has a basic React app so you dont need to fiddle with that
 
-```git clone <insert repo here>```
+```
+git clone https://github.com/mikefynes-newthings/ML-labtime.git
+```
 
 ## Training data setup
 In any ML setup the data is crucial, BrainJS can handle an array of data, as long as it is represented as a number between 0 and 1, for example
