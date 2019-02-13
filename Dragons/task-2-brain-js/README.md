@@ -70,3 +70,12 @@ We are fighting for all Americans, from all backgrounds, of every age, race, rel
 ```
 
 What does the model say?
+
+## Further study
+
+This tutorial is based on this article : https://itnext.io/you-can-build-a-neural-network-in-javascript-even-if-you-dont-really-understand-neural-networks-e63e12713a3
+
+Further study on BrainJS can be found at the source : https://github.com/BrainJS/brain.js 
+
+Courses : https://scrimba.com/g/gneuralnetworks 
+
