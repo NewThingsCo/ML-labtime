@@ -46,7 +46,8 @@ export function execute(input) {
     return {
         text : "Result : " + output + " Certainty : " + certainty + "%",
         input : input,
-        output : category
+        output : category,
+        certainty : certainty
     }
 }
 
