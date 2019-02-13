@@ -1,0 +1,61 @@
+import {trainingData} from '../data/training-data'
+import {NeuralNetwork} from 'brain.js'
+
+let trainedNet;
+
+function encode(arg){
+    return arg.split('').map(x => (x.charCodeAt(0) / 255));
+}
+
+function processTrainingData(data) {
+    return data.map(d => {
+        return {
+            input: encode(d.input),
+            output: d.output
+        }
+    })
+}
+
+
+const config =  {
+    // Defaults values --> expected validation
+iterations: 20000,    // the maximum times to iterate the training data --> number greater than 0
+errorThresh: 0.005,   // the acceptable error percentage from training data --> number between 0 and 1
+log: false,           // true to use console.log, when a function is supplied it is used --> Either true or a function
+logPeriod: 10,        // iterations between logging out --> number greater than 0
+learningRate: 0.3,    // scales with delta to effect training rate --> number between 0 and 1
+momentum: 0.1,        // scales with next layer's change value --> number between 0 and 1
+callback: null,       // a periodic call back that can be triggered while training --> null or function
+callbackPeriod: 10,   // the number of iterations through the training data between callback calls --> number greater than 0
+timeout: Infinity     // the max number of milliseconds to train for --> number greater than 0
+}
+
+function train(data) {
+    const net = new NeuralNetwork();
+    net.train(processTrainingData(data), config);
+    trainedNet = net.toFunction();
+}
+
+export function execute(input) {
+    const results = trainedNet(encode(input));  //trainedNet(encode(input));
+    console.log(results);
+
+    let output;
+    let certainty;
+
+    if(results.trump > results.kardashian){
+        output = 'Donald Trump'
+        certainty = Math.floor(results.trump * 100)
+    }
+    else{
+        output = 'Kim Kardashian'
+        certainty = Math.floor(results.kardashian * 100)
+    }
+
+    return "Result : " + output + " Certainty : " + certainty + "%";
+}
+
+
+export function startTraining() {
+    train(trainingData);
+}
