@@ -1,21 +1,8 @@
 import {trainingData} from '../data/training-data'
 import {NeuralNetwork} from 'brain.js'
+import {processTrainingData, encodeText} from "./encoding-tools";
 
 let trainedNet;
-
-function encode(arg){
-    return arg.split('').map(x => (x.charCodeAt(0) / 255));
-}
-
-function processTrainingData(data) {
-    return data.map(d => {
-        return {
-            input: encode(d.input),
-            output: d.output
-        }
-    })
-}
-
 
 const config =  {
     // Defaults values --> expected validation
@@ -37,7 +24,7 @@ function train(data) {
 }
 
 export function execute(input) {
-    const results = trainedNet(encode(input));  //trainedNet(encode(input));
+    const results = trainedNet(encodeText(input));
     console.log(results);
 
     let output;
