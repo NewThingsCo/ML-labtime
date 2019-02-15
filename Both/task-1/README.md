@@ -31,3 +31,19 @@ We are using the CPU only version which can be installed as per below
 ```
  pip install tensorflow
  ``` 
+
+### Problems
+It seems some things arent working out of box with the pyhton midi player, if you run into errors run the below, then run the `rbm_chords.py` again
+
+```
+pip3 install git+https://github.com/vishnubob/python-midi@feature/python3
+```
+
+### Output
+Output will appear in `/out`
+
+You can play it using something like timidity, or VLC media player
+
+``` 
+brew install timidity
+``` 
